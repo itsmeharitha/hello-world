@@ -12,6 +12,7 @@ pipeline {
                 sh ''' whoami
                 cd hari
                 pwd
+                mvn clean install package
                 '''
             }
         }
@@ -21,11 +22,6 @@ pipeline {
                 echo 'zipping'
                 sh ''' zip -r snapshot.zip .
                 '''
-            }
-        }
-        stage('Release') {
-            steps {
-                echo 'Release'
             }
         }
     }
