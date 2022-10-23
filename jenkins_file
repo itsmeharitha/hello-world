@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Git pull source code') {
+            steps {
+                git branch: 'main', url: 'https://github.com/itsmeharitha/hello-world.git'
+            }
+        }
+        stage('Build source') {
+            steps {
+                sh ''' whoami
+                mkdir hari
+                cd hari
+                pwd
+                '''
+            }
+        }
+        
+         stage('Archieve') {
+            steps {
+                echo 'zipping'
+                zip -9rv-snapshot.zip .
+            }
+        }
+        stage('Release') {
+            steps {
+                echo 'Release'
+            }
+        }
+    }
+}
