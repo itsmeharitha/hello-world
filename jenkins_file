@@ -20,7 +20,7 @@ pipeline {
          stage('Archieve') {
             steps {
                 echo 'zipping'
-                zip -9rv-snapshot.zip .
+                zip snapshot.zip .
             }
         }
         stage('Release') {
