@@ -10,7 +10,6 @@ pipeline {
         stage('Build source') {
             steps {
                 sh ''' whoami
-                mkdir hari
                 cd hari
                 pwd
                 '''
