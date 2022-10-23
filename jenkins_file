@@ -12,7 +12,6 @@ pipeline {
                 sh ''' whoami
                 cd hari
                 pwd
-                mvn clean install package
                 '''
             }
         }
