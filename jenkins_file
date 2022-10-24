@@ -12,7 +12,10 @@ pipeline {
                 sh ''' whoami
                 cd hari
                 pwd
-                '''
+               javac hello_world.java
+               java hello_world.java
+               '''
+               
             }
         }
         
