@@ -24,7 +24,6 @@ pipeline {
         sh '''java sonar:sonar'''
              }
         }
-        }
          stage('Archieve') {
             steps {
                 echo 'zipping'
