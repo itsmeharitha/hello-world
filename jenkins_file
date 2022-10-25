@@ -20,9 +20,10 @@ pipeline {
         stage('SonarQube analysis') {
         steps{
         withSonarQubeEnv('sonarqube-8.9') {
-        sh "java sonar:sonar"
-    }
-        
+        sh '''java sonar:sonar'''
+             }
+        }
+        }
          stage('Archieve') {
             steps {
                 echo 'zipping'
