@@ -19,7 +19,7 @@ pipeline {
         }
         stage('SonarQube analysis') {
         steps{
-        withSonarQubeEnv('sonarqube-8.9') {
+        withSonarQubeEnv('sonarqube-8.9.10') {
         sh '''java sonar:sonar'''
              }
         }
