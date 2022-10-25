@@ -1,34 +1,33 @@
-pipeline {
+pipeline{
     agent any
-
-    stages {
-        stage('Git pull source code') {
-            steps {
+    environment {
+        PATH = "$PATH:/opt//usr/share/maven/bin"
+    }
+    stages{
+       stage('GetCode'){
+            steps{
+               // git 'https://github.com/ravdy/javaloginapp.git'
                 git branch: 'main', url: 'https://github.com/itsmeharitha/hello-world.git'
             }
-        }
-        stage('Build source') {
-            steps {
-                sh ''' whoami
-                pwd
-               javac hello_world.java
-               java hello_world.java
-               '''
-               
             }
-        }
+         }        
+       stage('Build'){
+            steps{
+                sh 'mvn clean package'
+            }
+         }
         stage('SonarQube analysis') {
-        def scannerHome = tool 'sonarqube';
-        withSonarQubeEnv('sonarqube'){
-        sh '''java sonar:sonar'''
+//    def scannerHome = tool 'SonarScanner 4.0';
+        steps{
+        withSonarQubeEnv('sonarqube-8.9.10') { 
+        // If you have configured more than one global server connection, you can specify its name
+//      sh "${scannerHome}/bin/sonar-scanner"
+        sh "mvn sonar:sonar"
+    }
         }
-     }
-         stage('Archieve') {
-            steps {
-                echo 'zipping'
-                sh ''' zip -r snapshot.zip .
-                '''
-            }
         }
+       
     }
 }
+
+
