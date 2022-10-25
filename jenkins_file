@@ -9,8 +9,7 @@ pipeline{
                git 'https://github.com/itsmeharitha/hello-world.git'
                 //git branch: 'main', url: 'https://github.com/itsmeharitha/hello-world.git'
             }
-            }
-         }        
+            }      
        stage('Build'){
             steps{
                 sh 'mvn clean package'
@@ -27,6 +26,7 @@ pipeline{
         }
         }
        
+    }
     }
 
 
