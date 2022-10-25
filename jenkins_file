@@ -19,9 +19,10 @@ pipeline {
         }
         stage('SonarQube analysis') {
         def scannerHome = tool 'sonarqube';
-        withSonarQubeEnv('sonarqube');
+        withSonarQubeEnv('sonarqube'){
         sh '''java sonar:sonar'''
         }
+     }
          stage('Archieve') {
             steps {
                 echo 'zipping'
