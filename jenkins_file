@@ -6,8 +6,8 @@ pipeline{
     stages{
        stage('GetCode'){
             steps{
-               // git 'https://github.com/ravdy/javaloginapp.git'
-                git branch: 'main', url: 'https://github.com/itsmeharitha/hello-world.git'
+               git 'https://github.com/itsmeharitha/hello-world.git'
+                //git branch: 'main', url: 'https://github.com/itsmeharitha/hello-world.git'
             }
             }
          }        
