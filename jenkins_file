@@ -8,7 +8,6 @@ pipeline{
             steps{
                //git 'https://github.com/itsmeharitha/hello-world.git'
                 git branch: 'main', url: 'https://github.com/itsmeharitha/hello-world.git'
-                sh '''report-task.txt'''
                 }
             }      
        stage('Build'){
